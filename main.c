@@ -44,7 +44,7 @@ int * GiamDan(int *array, int n)
     {
         for(j=i+1;j<n;j++)
         {
-            if(array[j]>array[i])
+            if(array[i]<array[j])
             {
                 temp = array[i];
                 array[i]= array[j];
