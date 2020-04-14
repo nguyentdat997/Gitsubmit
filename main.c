@@ -1,9 +1,8 @@
 /*program input an array and print data after sort to screen*/
-
 #include <stdio.h>
 #include <stdlib.h>
+/*definition function*/
 
-/*declaration function*/
 /************************************************************
 function TangDan: sort array in ascending order
 input: array pointer point to array
@@ -30,6 +29,31 @@ int * TangDan(int *array, int n)
     return array;
 }
 
+/************************************************************
+function GiamDan: sort array in descending order
+input: array pointer point to array
+       n number element of array
+output: array pointer point to array
+************************************************************/
+int * GiamDan(int *array, int n)
+{
+    int i =0;
+    int j =0;
+    int temp =0;
+    for (i =0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(array[i]<array[j])
+            {
+                temp = array[i];
+                array[i]= array[j];
+                array[j]=temp;
+            }
+        }
+    }
+    return array;
+}
 
 
 int main()
@@ -52,6 +76,13 @@ int main()
 
     printf("Data after sort in ascending order:\n");
     array = TangDan(array,n);
+    for(i=0;i<n;i++)
+    {
+        printf("array[%d] = %d\n",i,*(array+i));
+        fflush(stdin);
+    }
+    printf("Data after sort in descending order:\n");
+    array = GiamDan(array,n);
     for(i=0;i<n;i++)
     {
         printf("array[%d] = %d\n",i,*(array+i));
